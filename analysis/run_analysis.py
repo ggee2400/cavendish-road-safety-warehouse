@@ -174,11 +174,23 @@ def make_heatmap(yearly, root, note='Cleaned data re-imported from GitHub'):
 
 
 def github_download(repo,root):
-    import urllib.request
+    """Fetch the warehouse CSV through the authenticated GitHub CLI.
+
+    gh uses the system certificate store; this avoids Python 3.10's
+    local certificate bundle issue without disabling TLS verification.
+    """
+    import base64
+    import json
+    import subprocess
     uri=f'https://raw.githubusercontent.com/{repo}/main/data/annual_summary.csv'
-    request=urllib.request.Request(uri,headers={'User-Agent':'CUU-CAT1-Analysis/1.0'})
-    with urllib.request.urlopen(request,timeout=25) as response:
-        body=response.read().decode('utf-8-sig')
+    endpoint=f'repos/{repo}/contents/data/annual_summary.csv'
+    result=subprocess.run(['gh','api',endpoint],capture_output=True,text=True,check=False)
+    if result.returncode:
+        raise RuntimeError('GitHub import failed: '+result.stderr.strip())
+    payload=json.loads(result.stdout)
+    if payload.get('encoding')!='base64' or not payload.get('content'):
+        raise ValueError('Unexpected GitHub CSV content response')
+    body=base64.b64decode(payload['content']).decode('utf-8-sig')
     records=list(csv.DictReader(body.splitlines()))
     for row in records:
         for key in VARIABLES:
@@ -187,7 +199,6 @@ def github_download(repo,root):
     if len(records)!=10 or [r['Year'] for r in records]!=YEAR_LABELS:
         raise ValueError('GitHub annual summary must contain years 2011..2020')
     return records,uri
-
 
 def main():
     p=argparse.ArgumentParser()
