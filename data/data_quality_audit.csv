@@ -1,0 +1,16 @@
+Year,Issue,Detail,Treatment
+2011,Annual total/category sum discrepancy,"Annual total=22272, visible categories=21991, difference=+281",Retained published annual total; no invented residual category
+2011,Missing cause total,Dangerous Loading is blank in the supplied spreadsheet,Retained missing; no zero imputation
+2011,Severity detail not provided,2011 only reports category totals; no Fatal/Serious/Minor columns,Left severity columns blank as not provided
+2012,Annual total/category sum discrepancy,"Annual total=20661, visible categories=19798, difference=+863",Retained published annual total; no invented residual category
+2016,Missing cause total,DMC is blank in the supplied spreadsheet,Retained missing; no zero imputation
+2016,Missing cause total,Other Causes is blank in the supplied spreadsheet,Retained missing; no zero imputation
+2016,Severity/category total mismatch,"Over Speeding: fatal+serious+minor=588, recorded total=589 (difference=+1)",Retained recorded category total; flagged row
+2016,Severity/category total mismatch,"Unknown Cause: fatal+serious+minor=701, recorded total=700 (difference=-1)",Retained recorded category total; flagged row
+2016,Severity/category total mismatch,"Under Influence of Alcohol: fatal+serious+minor=201, recorded total=200 (difference=-1)",Retained recorded category total; flagged row
+2016,Severity/category total mismatch,"Over Loading: fatal+serious+minor=30, recorded total=31 (difference=+1)",Retained recorded category total; flagged row
+2016,Severity/category total mismatch,"Dazzled by Lights: fatal+serious+minor=49, recorded total=48 (difference=-1)",Retained recorded category total; flagged row
+2017,Missing cause total,Other Causes is blank in the supplied spreadsheet,Retained missing; no zero imputation
+2018,Missing cause total,Other Causes is blank in the supplied spreadsheet,Retained missing; no zero imputation
+2019,Missing cause total,Other Causes is blank in the supplied spreadsheet,Retained missing; no zero imputation
+2020,Severity/category total mismatch,"Dazzled by Lights: fatal+serious+minor=13, recorded total=20 (difference=+7)",Retained recorded category total; flagged row

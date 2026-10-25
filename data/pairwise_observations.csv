@@ -1,0 +1,5 @@
+Variable,Population_Behavior,Road_Environment,Motor_Vehicle_Condition,Total_Road_Traffic_Accidents
+Population_Behavior,10,10,8,10
+Road_Environment,10,10,8,10
+Motor_Vehicle_Condition,8,8,8,8
+Total_Road_Traffic_Accidents,10,10,8,10
